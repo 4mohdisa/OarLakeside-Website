@@ -88,7 +88,7 @@ export default function Home() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/background-video.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dtrzjqrne/video/upload/v1756037666/OAR_Video_1_1_uivylg.mp4" type="video/mp4" />
           {/* Fallback image for browsers that don't support video */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"

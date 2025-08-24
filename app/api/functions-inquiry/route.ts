@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: 'OAR Functions <functions@oarlakeside.com>',
-      to: ['info@oarlakeside.com'], // Replace with actual restaurant email
+      to: [process.env.ADMIN_EMAIL || 'admin@oarlakeside.com.au'],
       subject: `New Function Inquiry - ${validatedData.eventType} for ${validatedData.guestCount} guests`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
