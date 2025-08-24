@@ -1,0 +1,56 @@
+{
+  "/": {
+    "title": "OAR Restaurant | Premium Lakeside Dining | West Lakes Shore Adelaide",
+    "description": "Experience OAR's award-winning lakeside dining in West Lakes Shore. Fresh Adelaide Hills farm-to-table cuisine, all-day brunch & lunch. Open 7 days, 7am-3pm. Book now for waterfront dining excellence.",
+    "keywords": "OAR restaurant, lakeside dining Adelaide, West Lakes Shore restaurant, farm to table Adelaide, brunch Adelaide, lunch Adelaide, waterfront dining, Adelaide Hills produce, coffee Adelaide, booking restaurant Adelaide",
+    "ogImage": "https://assets.macaly-user-data.dev/bkih89bjnhhv1zsmtlc5fs4q/ayd8n5tgg94m7pi2dirvz79o/s6-ZBv89sNKaWSFkVmHfw/untitled-design-6.png",
+    "ogType": "website",
+    "ogLocale": "en_AU",
+    "twitterCard": "summary_large_image"
+  },
+  "/about": {
+    "title": "About OAR Restaurant | Our Story & Farm-to-Table Vision | Adelaide",
+    "description": "Discover OAR's journey from Adelaide Hills farm to lakeside table. Learn about our sustainable practices, local sourcing, and commitment to exceptional waterfront dining experiences in West Lakes Shore.",
+    "keywords": "about OAR restaurant, Adelaide Hills farm, sustainable dining Adelaide, local ingredients Adelaide, restaurant story, lakeside restaurant history, West Lakes Shore dining, farm to table philosophy",
+    "ogImage": "https://assets.macaly-user-data.dev/bkih89bjnhhv1zsmtlc5fs4q/ayd8n5tgg94m7pi2dirvz79o/UnTKDyAR-667Jlmd6WOa_/untitled-design-6.png",
+    "ogType": "website",
+    "ogLocale": "en_AU",
+    "twitterCard": "summary_large_image"
+  },
+  "/menu": {
+    "title": "OAR Menu 2025 | Fresh Seasonal Dishes | Adelaide Lakeside Restaurant",
+    "description": "Explore OAR's 2025 summer menu featuring fresh Adelaide Hills produce. Signature brunch dishes, artisan coffee, healthy smoothies, and innovative lunch options. View our full lakeside dining menu.",
+    "keywords": "OAR menu 2025, Adelaide restaurant menu, brunch menu Adelaide, lunch menu West Lakes, seasonal dishes Adelaide, Adelaide Hills ingredients, coffee menu, smoothies Adelaide, lakeside dining menu",
+    "ogImage": "https://assets.macaly-user-data.dev/cdn-cgi/image/fit=scale-down,width=2000,height=2000,format=webp,quality=90/bkih89bjnhhv1zsmtlc5fs4q/ayd8n5tgg94m7pi2dirvz79o/GGfyFLyll76nJG7jYgmHg/a4b0dcd9-b58e-4610-8e77-c6abaf6db549.jpg",
+    "ogType": "website",
+    "ogLocale": "en_AU",
+    "twitterCard": "summary_large_image"
+  },
+  "/privacy": {
+    "title": "Privacy Policy | OAR Restaurant Data Protection | West Lakes Shore",
+    "description": "OAR Restaurant's comprehensive privacy policy. Learn how we protect your personal information, booking data, and ensure secure dining experiences at our West Lakes Shore location.",
+    "keywords": "OAR privacy policy, restaurant data protection, booking privacy, West Lakes Shore restaurant privacy, dining data security",
+    "ogImage": "/logo.png",
+    "ogType": "website",
+    "ogLocale": "en_AU",
+    "twitterCard": "summary"
+  },
+  "/legal": {
+    "title": "Legal Notice & Terms | OAR Restaurant | West Lakes Shore Adelaide",
+    "description": "Legal notice and terms of service for OAR Restaurant. Important information about dining policies, booking terms, and restaurant operations at our West Lakes Shore location.",
+    "keywords": "OAR legal notice, restaurant terms of service, dining policies, booking terms, West Lakes Shore restaurant legal",
+    "ogImage": "/logo.png",
+    "ogType": "website",
+    "ogLocale": "en_AU",
+    "twitterCard": "summary"
+  },
+  "/functions": {
+    "title": "Private Functions & Events | OAR Restaurant | Lakeside Wedding Venue Adelaide",
+    "description": "Host your special event at OAR's exclusive lakeside venue. Weddings, engagements, corporate events with custom menus, boutique bar, and stunning West Lakes Shore views. Book your private function today.",
+    "keywords": "OAR functions, lakeside wedding venue Adelaide, private events West Lakes, corporate functions Adelaide, engagement party venue, wedding reception Adelaide, event space hire, lakeside venue hire",
+    "ogImage": "https://assets.macaly-user-data.dev/bkih89bjnhhv1zsmtlc5fs4q/ayd8n5tgg94m7pi2dirvz79o/_YWaCAh0Hv70HnX4Sm12L/unnamed.webp",
+    "ogType": "website",
+    "ogLocale": "en_AU",
+    "twitterCard": "summary_large_image"
+  }
+}
