@@ -99,7 +99,7 @@ export default function MenuPageContent() {
             </p>
             <div className="flex justify-center">
               <Button
-                onClick={() => window.open('https://booking.orderfeeds.com/restaurant/oar', '_blank')}
+                onClick={() => window.open('https://oarwestlakes.orderfeeds.com', '_blank')}
                 className="bg-oar-green hover:bg-oar-green/90 text-white px-8 py-4 text-lg font-semibold rounded-lg"
               >
                 Book a Table

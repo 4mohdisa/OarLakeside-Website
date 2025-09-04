@@ -58,7 +58,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
           {/* Book Now Button */}
           <div className="lg:col-span-3 flex justify-center lg:justify-end relative">
             <button 
-              onClick={() => window.open('https://booking.orderfeeds.com/restaurant/oar', '_blank')}
+              onClick={() => window.open('https://oarwestlakes.orderfeeds.com', '_blank')}
               className="bg-white text-gray-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-colors shadow-xl"
               data-macaly="footer-book-now-button"
             >

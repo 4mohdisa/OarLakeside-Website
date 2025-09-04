@@ -238,7 +238,7 @@ export default function AboutPageContent() {
                 <Button 
                   onClick={() => {
                     console.log("Book Now button clicked from About page");
-                    window.open('https://booking.orderfeeds.com/restaurant/oar', '_blank');
+                    window.open('https://oarwestlakes.orderfeeds.com', '_blank');
                   }}
                   size="lg"
                   className="bg-white hover:bg-gray-100 text-oar-green px-12 py-6 text-lg font-bold rounded-full shadow-lg"

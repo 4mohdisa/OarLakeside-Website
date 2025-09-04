@@ -30,7 +30,7 @@ export default function Navbar({ onScrollToSection }: NavbarProps) {
 
   const handleBookNow = () => {
     console.log("Book Now button clicked - redirecting to booking system");
-    window.open('https://booking.orderfeeds.com/restaurant/oar', '_blank');
+    window.open('https://oarwestlakes.orderfeeds.com', '_blank');
   };
 
   const navigateToPage = (path: string) => {
