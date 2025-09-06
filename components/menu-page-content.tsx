@@ -1,11 +1,28 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, MapPin, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import BookingDialog from '@/components/booking-dialog';
 
 export default function MenuPageContent() {
+  const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
+
+  const handleBookTable = () => {
+    // Check if we're on the homepage
+    if (window.location.pathname === '/') {
+      // On homepage, scroll to booking section
+      const element = document.getElementById('booking');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // On other pages, open booking dialog
+      setIsBookingDialogOpen(true);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-oar-beige pt-16">
       {/* Hero Section */}
@@ -99,7 +116,7 @@ export default function MenuPageContent() {
             </p>
             <div className="flex justify-center">
               <Button
-                onClick={() => window.open('https://oarwestlakes.orderfeeds.com', '_blank')}
+                onClick={handleBookTable}
                 className="bg-oar-green hover:bg-oar-green/90 text-white px-8 py-4 text-lg font-semibold rounded-lg"
               >
                 Book a Table
@@ -108,6 +125,11 @@ export default function MenuPageContent() {
           </motion.div>
         </div>
       </section>
+      
+      <BookingDialog 
+        isOpen={isBookingDialogOpen} 
+        onClose={() => setIsBookingDialogOpen(false)} 
+      />
     </div>
   );
 }

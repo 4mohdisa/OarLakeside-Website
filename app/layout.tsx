@@ -132,6 +132,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <script type="text/javascript">
+          {`(function() {
+            const scr = document.createElement("script");
+            scr.src = "https://oarlakeside.resos.com/embed/booking/widget.js?ts=" + new Date().getTime();
+            document.getElementById("booking-script-2").appendChild(scr);
+          })()`}
+        </script>
         <link rel="canonical" href="https://oarlakeside.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#304a33" />

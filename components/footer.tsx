@@ -1,13 +1,16 @@
 'use client';
 
+import { useState } from 'react';
 import { Instagram } from 'lucide-react';
 import Image from 'next/image';
+import BookingDialog from '@/components/booking-dialog';
 
 interface FooterProps {
   onScrollToSection?: (sectionId: string) => void;
 }
 
 export default function Footer({ onScrollToSection }: FooterProps) {
+  const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
   console.log("Footer component loaded");
 
   const scrollToSection = (sectionId: string) => {
@@ -58,7 +61,16 @@ export default function Footer({ onScrollToSection }: FooterProps) {
           {/* Book Now Button */}
           <div className="lg:col-span-3 flex justify-center lg:justify-end relative">
             <button 
-              onClick={() => window.open('https://oarwestlakes.orderfeeds.com', '_blank')}
+              onClick={() => {
+                // Check if we're on the homepage
+                if (window.location.pathname === '/') {
+                  // On homepage, scroll to booking section
+                  scrollToSection('booking');
+                } else {
+                  // On other pages, open booking dialog
+                  setIsBookingDialogOpen(true);
+                }
+              }}
               className="bg-white text-gray-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-colors shadow-xl"
               data-macaly="footer-book-now-button"
             >
@@ -143,6 +155,11 @@ export default function Footer({ onScrollToSection }: FooterProps) {
           <ellipse cx="80" cy="60" rx="25" ry="12" stroke="currentColor" strokeWidth="1.5" fill="none"/>
         </svg>
       </div>
+      
+      <BookingDialog 
+        isOpen={isBookingDialogOpen} 
+        onClose={() => setIsBookingDialogOpen(false)} 
+      />
     </footer>
   );
 }

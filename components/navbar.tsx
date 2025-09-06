@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import BookingDialog from '@/components/booking-dialog';
 
 interface NavbarProps {
   onScrollToSection?: (sectionId: string) => void;
@@ -12,6 +13,7 @@ interface NavbarProps {
 
 export default function Navbar({ onScrollToSection }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
 
   console.log("Navbar component loaded");
 
@@ -29,8 +31,16 @@ export default function Navbar({ onScrollToSection }: NavbarProps) {
   };
 
   const handleBookNow = () => {
-    console.log("Book Now button clicked - redirecting to booking system");
-    window.open('https://oarwestlakes.orderfeeds.com', '_blank');
+    console.log("Book Now button clicked");
+    // Check if we're on the homepage
+    if (window.location.pathname === '/') {
+      // On homepage, scroll to booking section
+      scrollToSection('booking');
+    } else {
+      // On other pages, open booking dialog
+      setIsBookingDialogOpen(true);
+    }
+    setIsMenuOpen(false);
   };
 
   const navigateToPage = (path: string) => {
@@ -110,6 +120,11 @@ export default function Navbar({ onScrollToSection }: NavbarProps) {
           </div>
         </motion.div>
       )}
+      
+      <BookingDialog 
+        isOpen={isBookingDialogOpen} 
+        onClose={() => setIsBookingDialogOpen(false)} 
+      />
     </nav>
   );
 }

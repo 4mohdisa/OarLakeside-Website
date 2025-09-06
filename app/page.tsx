@@ -46,8 +46,8 @@ export default function Home() {
   };
 
   const handleBookNow = () => {
-    console.log("Book Now button clicked - redirecting to booking system");
-    window.open('https://oarwestlakes.orderfeeds.com', '_blank');
+    console.log("Book Now button clicked - scrolling to booking section");
+    scrollToSection('booking');
   };
 
   const onSubmit = async (data: ContactForm) => {
@@ -991,6 +991,65 @@ export default function Home() {
               </Card>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Booking Section */}
+      <section id="booking" className="py-20 bg-oar-beige px-4">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-5xl font-serif text-oar-black mb-4">
+              Reserve Your Table
+            </h2>
+            <div className="w-24 h-1 bg-oar-green mx-auto mb-8"></div>
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Book your lakeside dining experience at OAR Restaurant. Select your preferred date and time below.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-lg shadow-lg p-8"
+          >
+            {/* resOS Booking widget */}
+            <div className="booking-widget-wrapper">
+              <a 
+                className="resos-booking-widget" 
+                href="https://oarlakeside.resos.com/booking" 
+                data-lang="en" 
+                data-restaurant-id="L3bST4yofNoBkosxy" 
+                data-domain="oarlakeside.resos.com"
+              >
+                Book a table
+              </a>
+              <div 
+                id="booking-script-2" 
+                style={{
+                  textAlign: 'center',
+                  opacity: 0.6,
+                  fontSize: '70%',
+                  marginTop: '10px'
+                }}
+              >
+                <a 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  href="https://resos.com"
+                >
+                  Restaurant table management
+                </a>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
