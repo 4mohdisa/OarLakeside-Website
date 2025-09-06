@@ -1,13 +1,30 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { MapPin, Clock, Users, Award } from 'lucide-react'
+import BookingDialog from '@/components/booking-dialog'
 
 export default function AboutPageContent() {
+  const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
   console.log("About page loaded");
+
+  const handleBookNow = () => {
+    // Check if we're on the homepage
+    if (window.location.pathname === '/') {
+      // On homepage, scroll to booking section
+      const element = document.getElementById('booking');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // On other pages, open booking dialog
+      setIsBookingDialogOpen(true);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white pt-16">
@@ -236,10 +253,7 @@ export default function AboutPageContent() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Button 
-                  onClick={() => {
-                    console.log("Book Now button clicked from About page");
-                    window.open('https://oarwestlakes.orderfeeds.com', '_blank');
-                  }}
+                  onClick={handleBookNow}
                   size="lg"
                   className="bg-white hover:bg-gray-100 text-oar-green px-12 py-6 text-lg font-bold rounded-full shadow-lg"
                 >
@@ -267,6 +281,11 @@ export default function AboutPageContent() {
           </motion.div>
         </div>
       </section>
+      
+      <BookingDialog 
+        isOpen={isBookingDialogOpen} 
+        onClose={() => setIsBookingDialogOpen(false)} 
+      />
     </div>
   )
 }
