@@ -1021,7 +1021,7 @@ export default function Home() {
             className="bg-white rounded-lg shadow-lg p-8"
           >
             {/* resOS Booking widget */}
-            <div className="booking-widget-wrapper">
+            <div className="booking-widget-wrapper" style={{ minHeight: '700px' }}>
               <a 
                 className="resos-booking-widget" 
                 href="https://oarlakeside.resos.com/booking" 
@@ -1032,7 +1032,7 @@ export default function Home() {
                 Book a table
               </a>
               <div 
-                id="booking-script-2" 
+                id="resos-booking-script-3" 
                 style={{
                   textAlign: 'center',
                   opacity: 0.6,
@@ -1048,6 +1048,19 @@ export default function Home() {
                   Restaurant table management
                 </a>
               </div>
+              <script
+                type="text/javascript"
+                dangerouslySetInnerHTML={{
+                  __html: `(
+                    function() {
+                      const scr = document.createElement('script');
+                      scr.src = 'https://oarlakeside.resos.com/embed/booking/widget.js?ts=' + new Date().getTime();
+                      const el = document.getElementById('resos-booking-script-3');
+                      if (el) { el.appendChild(scr); }
+                    }
+                  )()`
+                }}
+              />
             </div>
           </motion.div>
         </div>

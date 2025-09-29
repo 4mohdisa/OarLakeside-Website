@@ -112,3 +112,23 @@ html {
 .animate-fade-in-up {
   animation: fadeInUp 0.4s ease-out;
 }
+
+/* resOS booking iframe height fix */
+iframe[src*="resos"] {
+  height: 650px !important;
+  min-height: 650px !important;
+  width: 100% !important;
+  display: block;
+  margin: 0 auto !important;
+}
+
+/* Center resOS widget content */
+.resos-booking-widget,
+.booking-widget-wrapper {
+  text-align: center !important;
+}
+
+/* Ensure widget container centers its content */
+div[id*="resos-booking-script"] {
+  text-align: center !important;
+}

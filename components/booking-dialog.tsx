@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 
@@ -10,81 +10,51 @@ interface BookingDialogProps {
 }
 
 export default function BookingDialog({ isOpen, onClose }: BookingDialogProps) {
-  const widgetContainerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    if (isOpen && widgetContainerRef.current) {
-      // Clear any existing content
-      widgetContainerRef.current.innerHTML = '';
-      
-      // Create unique ID for this dialog instance
-      const uniqueId = `booking-script-dialog-${Date.now()}`;
-      
-      // Create the widget HTML structure
-      const widgetHTML = `
-        <a class="resos-booking-widget" 
-           href="https://oarlakeside.resos.com/booking" 
-           data-lang="en" 
-           data-restaurant-id="L3bST4yofNoBkosxy" 
-           data-domain="oarlakeside.resos.com">
-          Book a table
-        </a>
-        <div id="${uniqueId}" style="text-align:center;opacity:0.6;font-size:70%;margin-top:10px;">
-          <a target="_blank" rel="noopener noreferrer" href="https://resos.com">Restaurant table management</a>
-        </div>
-      `;
-      
-      widgetContainerRef.current.innerHTML = widgetHTML;
-      
-      // Load the resOS script with a delay to ensure DOM is ready
-      setTimeout(() => {
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.innerHTML = `
-          (function() {
-            const scr = document.createElement("script");
-            scr.src = "https://oarlakeside.resos.com/embed/booking/widget.js?ts=" + new Date().getTime();
-            const container = document.getElementById("${uniqueId}");
-            if (container) {
-              container.appendChild(scr);
-            }
-          })()
-        `;
-        
-        const scriptContainer = document.getElementById(uniqueId);
-        if (scriptContainer) {
-          scriptContainer.appendChild(script);
+    if (isOpen) {
+      // Small delay to ensure dialog is fully rendered
+      const timer = setTimeout(() => {
+        const container = document.getElementById('resos-booking-widget-dialog');
+        if (container && !container.querySelector('.resos-booking-widget')) {
+          // Create the exact HTML structure from the image
+          container.innerHTML = `
+            <a class="resos-booking-widget" 
+               href="https://oarlakeside.resos.com/booking" 
+               data-lang="en" 
+               data-restaurant-id="L3bST4yofNoBkosxy" 
+               data-domain="oarlakeside.resos.com">Book a table</a>
+            <div id="resos-booking-script-3" style="text-align:center;opacity:0.6;font-size:70%;margin-top:10px;">
+              <a target="_blank" rel="noopener noreferrer" href="https://resos.com">Restaurant table management</a>
+            </div>
+          `;
+          
+          // Create and append the script exactly as shown in the image
+          const script = document.createElement("script");
+          script.type = "text/javascript";
+          script.innerHTML = `(function() {const scr=document.createElement("script");scr.src="https://oarlakeside.resos.com/embed/booking/widget.js?ts="+new Date().getTime();document.getElementById("resos-booking-script-3").appendChild(scr);})()`; 
+          
+          container.appendChild(script);
         }
       }, 100);
+      
+      return () => clearTimeout(timer);
     }
   }, [isOpen]);
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[700px] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-[900px] overflow-y-visible">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-serif text-oar-green text-center">
-            Book Your Table at OAR
-          </DialogTitle>
+          <DialogTitle className="text-2xl font-serif text-oar-black">Book Your Table</DialogTitle>
         </DialogHeader>
         
-        <div className="py-4">
-          <div className="text-center mb-6">
-            <p className="text-gray-600 mb-4">
-              Reserve your lakeside dining experience at OAR Restaurant. 
-              Select your preferred date and time below.
-            </p>
-          </div>
-          
-          {/* resOS Booking widget container */}
+        <div className="py-6">
           <div 
-            ref={widgetContainerRef}
-            className="booking-widget-container min-h-[400px] w-full"
-            style={{ minHeight: '400px' }}
+            id="resos-booking-widget-dialog"
+            className="w-full min-h-[700px] bg-white rounded-lg p-4"
           >
-            {/* Widget will be loaded here */}
-            <div className="flex items-center justify-center h-32">
-              <p className="text-gray-500">Loading booking widget...</p>
+            <div className="flex items-center justify-center h-32 text-gray-600">
+              Loading booking widget...
             </div>
           </div>
         </div>
