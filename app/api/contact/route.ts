@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
     
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: 'OAR Restaurant <contact@oarlakeside.com>',
+      from: 'OAR Restaurant <contact@oarlakeside.com.au>',
       to: [process.env.ADMIN_EMAIL || 'admin@oarlakeside.com.au'],
       subject: validatedData.subject ? `Contact Form: ${validatedData.subject}` : 'New Contact Form Submission',
       html: `
@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to customer
     await resend.emails.send({
-      from: 'OAR Restaurant <noreply@oarlakeside.com>',
+      from: 'OAR Restaurant <noreply@oarlakeside.com.au>',
       to: [validatedData.email],
       subject: 'Thank you for contacting OAR Restaurant',
       html: `

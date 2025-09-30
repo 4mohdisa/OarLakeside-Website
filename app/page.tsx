@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, ExternalLink, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -24,7 +24,7 @@ type ContactForm = z.infer<typeof contactSchema>;
 
 export default function Home() {
   console.log("OAR Restaurant page loaded");
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
@@ -36,6 +36,21 @@ export default function Home() {
   } = useForm<ContactForm>({
     resolver: zodResolver(contactSchema),
   });
+
+  // Load resOS booking widget script on client side only
+  useEffect(() => {
+    const loadBookingWidget = () => {
+      const script = document.createElement('script');
+      script.src = `https://oarlakeside.resos.com/embed/booking/widget.js?ts=${Date.now()}`;
+      script.async = true;
+      const container = document.getElementById('resos-booking-script-3');
+      if (container) {
+        container.appendChild(script);
+      }
+    };
+
+    loadBookingWidget();
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     console.log("Scrolling to section:", sectionId);
@@ -1031,8 +1046,8 @@ export default function Home() {
               >
                 Book a table
               </a>
-              <div 
-                id="resos-booking-script-3" 
+              <div
+                id="resos-booking-script-3"
                 style={{
                   textAlign: 'center',
                   opacity: 0.6,
@@ -1040,27 +1055,14 @@ export default function Home() {
                   marginTop: '10px'
                 }}
               >
-                <a 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
                   href="https://resos.com"
                 >
                   Restaurant table management
                 </a>
               </div>
-              <script
-                type="text/javascript"
-                dangerouslySetInnerHTML={{
-                  __html: `(
-                    function() {
-                      const scr = document.createElement('script');
-                      scr.src = 'https://oarlakeside.resos.com/embed/booking/widget.js?ts=' + new Date().getTime();
-                      const el = document.getElementById('resos-booking-script-3');
-                      if (el) { el.appendChild(scr); }
-                    }
-                  )()`
-                }}
-              />
             </div>
           </motion.div>
         </div>

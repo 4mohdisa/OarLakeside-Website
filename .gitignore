@@ -43,3 +43,5 @@ next-env.d.ts
 .bash_history
 .npm
 .config
+
+.env
