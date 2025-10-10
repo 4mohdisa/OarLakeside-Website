@@ -57,7 +57,7 @@ export default function Navbar({ onScrollToSection }: NavbarProps) {
           <div className="flex-shrink-0">
             <button 
               onClick={() => navigateToPage('/')}
-              className="block"
+              className="flex items-center space-x-3 hover:opacity-90 transition-opacity duration-200"
             >
               <Image
                 src="/logo.png"
@@ -67,6 +67,7 @@ export default function Navbar({ onScrollToSection }: NavbarProps) {
                 className="w-12 h-12 object-contain hover:scale-105 transition-transform duration-200"
                 data-macaly="nav-logo"
               />
+              <span className="text-xl font-semibold text-oar-black">Oar Lakeside</span>
             </button>
           </div>
 
